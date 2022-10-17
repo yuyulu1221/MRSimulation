@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Cart
+  - CartPlatform
+  - RulerSpheres
+  - LengthText
+  - Product02
+  - Product01
+  - Rack01
+  - Rack02
+  - Source
+  - Conveyor
+  - Queue
+  - QueueIndicator
+  - SourceIndicator
+  - Stopper
+  - Lines
+  - ErrorDialog
+  - LoadArea
+  - UnloadArea01
+  - UnloadArea02
+  - ImageTarget01
+  - ImageTarget02
+  - ImageTarget03
+  - EquipmentPlacer
+  - ConveyorModel
+  - QueueModel
+  - CartDetection
+  - CartDetection1
+  - CartDetection2
+  - Rack02Detection3
+  - Rack02Detection4
+  - Rack01Detection3
+  - Rack01Detection2
+  - Rack02Detection1
+  - Rack01Detection4
+  - Rack02Detection2
+  - Rack01Detection1
+  - WorldAnchor
+  - YesNoDialog
+  - Initial
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Spatial Awareness
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
