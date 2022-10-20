@@ -6,9 +6,10 @@ using Photon.Pun;
 public class CartPosition : MonoBehaviourPun
 {
     private GameObject Cam;
-    private float y;
-    private Transform T;
-    [PunRPC] void Trans(Vector3 p, Quaternion r)
+    private float hitbox_y;
+    //private Transform T;
+    [PunRPC] 
+    void Trans(Vector3 p, Quaternion r)
     {
         this.transform.position = p;
         this.transform.rotation = r;
@@ -39,14 +40,13 @@ public class CartPosition : MonoBehaviourPun
         {
             if(GameObject.FindGameObjectWithTag("Source"))
             {
-                y = GameObject.FindGameObjectWithTag("Source").transform.position.y;
-                y = y - 0.36f;
-                // where to revise x, z
+                hitbox_y = GameObject.FindGameObjectWithTag("Source").transform.position.y;
+                hitbox_y = hitbox_y - 0.36f;
             }
             else
             {
-                y = GameObject.FindGameObjectWithTag("MainCamera").transform.position.y;
-                y = y  - 1.4f;
+                hitbox_y = GameObject.FindGameObjectWithTag("MainCamera").transform.position.y;
+                hitbox_y = hitbox_y  - 1.4f;
             }
             Cam = GameObject.FindGameObjectWithTag("MainCamera");
             PhotonView photonView = PhotonView.Get(this);
@@ -69,8 +69,8 @@ public class CartPosition : MonoBehaviourPun
             Vector3 Forward = new Vector3(Cam.transform.forward.x, 0, Cam.transform.forward.z);
             Forward = Vector3.Normalize(Forward);
             this.transform.position = Cam.transform.position + Forward * 0.4f;
-            Transform Old = this.transform.transform;
-            this.transform.position = new Vector3(Old.position.x, y, Old.position.z);
+            Transform Old = this.transform;
+            this.transform.position = new Vector3(Old.position.x, hitbox_y, Old.position.z);
             this.transform.rotation = Quaternion.Euler(0, Ry, 0); 
         }  
     }

@@ -8,11 +8,11 @@ public class PlayerPosition : MonoBehaviour
 {
     public GameObject CartPinButton;
     public GameObject ProductStateManager;
-    static public GameObject B;
-    static public GameObject C;
-    static public bool InUnload01;
-    static public bool InUnload02;
-    static public bool InLoad;
+    public static GameObject load_area;
+    public static GameObject unload_area;
+    public static bool InUnload01;
+    public static bool InUnload02;
+    public static bool InLoad;
 
     //When player enter to the area pop up the cart pin button loading/unloading
     private void OnTriggerEnter(Collider other)
@@ -21,23 +21,23 @@ public class PlayerPosition : MonoBehaviour
         switch (Tag)
         {
             case "LoadArea":
-                B = Instantiate(CartPinButton, new Vector3(0, 0, 0), Quaternion.identity);
-                B.transform.Find("IconAndText").Find("TextMeshPro").GetComponent<TextMeshPro>().text = "Start Loading";
+                load_area = Instantiate(CartPinButton, new Vector3(0, 0, 0), Quaternion.identity);
+                load_area.transform.Find("IconAndText").Find("TextMeshPro").GetComponent<TextMeshPro>().text = "Start Loading";
                 InLoad = true;
                 break;
             case "UnloadArea01":
                 if(!InUnload02)
                 {
-                    C = Instantiate(CartPinButton, new Vector3(0, 0, 0), Quaternion.identity);
-                    C.transform.Find("IconAndText").Find("TextMeshPro").GetComponent<TextMeshPro>().text = "Start Unloading";
+                    unload_area = Instantiate(CartPinButton, new Vector3(0, 0, 0), Quaternion.identity);
+                    unload_area.transform.Find("IconAndText").Find("TextMeshPro").GetComponent<TextMeshPro>().text = "Start Unloading";
                 }
                 InUnload01 = true;
                 break;
             case "UnloadArea02":
                 if (!InUnload01)
                 {
-                    C = Instantiate(CartPinButton, new Vector3(0, 0, 0), Quaternion.identity);
-                    C.transform.Find("IconAndText").Find("TextMeshPro").GetComponent<TextMeshPro>().text = "Start Unloading";
+                    unload_area = Instantiate(CartPinButton, new Vector3(0, 0, 0), Quaternion.identity);
+                    unload_area.transform.Find("IconAndText").Find("TextMeshPro").GetComponent<TextMeshPro>().text = "Start Unloading";
                 }
                 InUnload02 = true;
                 break;
@@ -53,32 +53,32 @@ public class PlayerPosition : MonoBehaviour
         switch (Tag)
         {
             case "LoadArea":
-                if (!B)
+                if (!load_area)
                 {
                     return;
                 }
-                Destroy(B);
+                Destroy(load_area);
                 InLoad = false;
                 break;
             case "UnloadArea01":
-                if (!C)
+                if (!unload_area)
                 {
                     return;
                 }
                 if (!InUnload02)
                 {
-                    Destroy(C);
+                    Destroy(unload_area);
                 }
                 InUnload01 = false;
                 break;
             case "UnloadArea02":
-                if (!C)
+                if (!unload_area)
                 {
                     return;
                 }
                 if (!InUnload01)
                 {
-                    Destroy(C);
+                    Destroy(unload_area);
                 }
                 InUnload02 = false;
                 break;
@@ -92,13 +92,13 @@ public class PlayerPosition : MonoBehaviour
     {
         if(!ProductStateManager.activeSelf)
         {
-            if(B)
+            if(load_area)
             {
-                Destroy(B);
+                Destroy(load_area);
             }
-            if(C)
+            if(unload_area)
             {
-                Destroy(C);
+                Destroy(unload_area);
             }
         }
 

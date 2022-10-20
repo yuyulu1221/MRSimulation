@@ -73,3 +73,5 @@ MRSimulation/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 # Temporary auto-generated Android Assets
 MRSimulation/[Aa]ssets/[Ss]treamingAssets/aa.meta
 MRSimulation/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+*.rar
