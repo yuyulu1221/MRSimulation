@@ -94,7 +94,7 @@ public class ProductMovement : MonoBehaviour
             this.GetComponent<Rigidbody>().useGravity = true;
         }
     }
-
+    // test of github
     //exit the trigger
     private void OnTriggerExit(Collider other)
     {
